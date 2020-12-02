@@ -17,8 +17,10 @@ const prepareAuth = (ctx) => {
 router.get('/products/', async (ctx) => {
  
     const auth = prepareAuth(ctx);
- 
-    await getProducts(auth).then(response => console.log(JSON.stringify(response)));   
+    var products = {};
+    await getProducts(auth).then(response => products = response.data.data.products); 
+    console.error(JSON.stringify(products));  
+    ctx.body = products;
 });
 router.get('/test/', async (ctx) => {
     ctx.body="<div><b>peñarol</b> es el mas grande</div>";
