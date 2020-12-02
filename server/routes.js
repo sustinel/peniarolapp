@@ -18,13 +18,10 @@ router.get('/products/', async (ctx) => {
  
     const auth = prepareAuth(ctx);
  
-    await getProducts(auth).then(response => console.log(JSON.stringify(response)))
-        ;   
+    await getProducts(auth).then(response => console.log(JSON.stringify(response)));   
 });
 router.get('/test/', async (ctx) => {
- 
-
-    ctx.body="peñarolpeñarol";
+    ctx.body="<div><b>peñarol</b> es el mas grande</div>";
 });
 module.exports = {
     router
